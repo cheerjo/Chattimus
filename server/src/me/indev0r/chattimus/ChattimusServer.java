@@ -3,6 +3,7 @@ package me.indev0r.chattimus;
 import me.indev0r.chattimus.network.NetworkServer;
 
 import javax.swing.*;
+import javax.swing.text.*;
 import java.awt.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -42,6 +43,10 @@ public class ChattimusServer extends JFrame {
 
         console = new JTextArea();
         console.setEditable(false);
+        
+        // enable autoscrolling for incoming messages
+        ((DefaultCaret)console.getCaret()).setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        
         JScrollPane consoleSP = new JScrollPane(console);
         consoleSP.setBorder(BorderFactory.createTitledBorder("Console Output"));
         panel.add(consoleSP, BorderLayout.CENTER);
